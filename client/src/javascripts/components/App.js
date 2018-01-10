@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Title } from '.';
 
 class App extends Component {
   constructor() {
@@ -18,6 +19,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+        <Title title="Djello" />
         <pre>{JSON.stringify(this.state.json, null, 2)}</pre>
       </div>
     );
