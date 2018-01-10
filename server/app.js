@@ -17,6 +17,13 @@ if (process.env.NODE_ENV !== 'production') {
 
 
 // ----------------------------------------
+// CORS
+// ----------------------------------------
+const cors = require('cors');
+app.use(cors());
+
+
+// ----------------------------------------
 // Body Parser
 // ----------------------------------------
 const bodyParser = require('body-parser');
@@ -91,26 +98,15 @@ app.use(morganToolkit());
 // ----------------------------------------
 // Routes
 // ----------------------------------------
-app.use('/', (req, res) => {
-  req.flash('Hi!');
-  res.render('welcome/index');
+const createError = require('http-errors');
+
+app.get('/', (req, res, next) => {
+  try {
+    res.json({ message: "Hi" });
+  } catch (e) {
+    next(e);
+  }
 });
-
-
-// ----------------------------------------
-// Template Engine
-// ----------------------------------------
-const expressHandlebars = require('express-handlebars');
-const helpers = require('./helpers');
-
-const hbs = expressHandlebars.create({
-  helpers: helpers,
-  partialsDir: 'views/',
-  defaultLayout: 'application'
-});
-
-app.engine('handlebars', hbs.engine);
-app.set('view engine', 'handlebars');
 
 
 // ----------------------------------------
@@ -118,7 +114,7 @@ app.set('view engine', 'handlebars');
 // ----------------------------------------
 const port = process.env.PORT ||
   process.argv[2] ||
-  3000;
+  3001;
 const host = 'localhost';
 
 let args;
@@ -143,10 +139,19 @@ app.use((err, req, res, next) => {
     return next(err);
   }
 
-  if (err.stack) {
-    err = err.stack;
-  }
-  res.status(500).render('errors/500', { error: err });
+  console.error(err);
+
+  err = err.status ?
+    createError(err.status, err.message) :
+    createError(500);
+
+  res.status(err.status).json({
+    error: {
+      status: err.status,
+      statusCode: err.status,
+      message: err.message
+    }
+  });
 });
 
 
