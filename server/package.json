@@ -32,6 +32,8 @@
     "method-override": "^2.3.10",
     "morgan": "^1.9.0",
     "morgan-toolkit": "^1.2.2",
+    "pg": "^7.4.1",
+    "pg-hstore": "^2.3.2",
     "sequelize": "^4.31.0",
     "sequelize-cli": "^3.2.0"
   }
