@@ -89,9 +89,7 @@ app.use(express.static(`${__dirname}/public`));
 // Logging
 // ----------------------------------------
 const morgan = require('morgan');
-const morganToolkit = require('morgan-toolkit')(morgan, {
-  req: ['cookies'/*, 'signedCookies' */]
-});
+const morganToolkit = require('morgan-toolkit')(morgan);
 
 app.use(morganToolkit());
 
@@ -99,15 +97,9 @@ app.use(morganToolkit());
 // ----------------------------------------
 // Routes
 // ----------------------------------------
-const createError = require('http-errors');
+const boardsRouter = require('./routers/boards');
 
-app.get('/', (req, res, next) => {
-  try {
-    res.json({ message: "Hi" });
-  } catch (e) {
-    next(e);
-  }
-});
+app.use('/boards', boardsRouter);
 
 
 // ----------------------------------------
@@ -118,10 +110,9 @@ const port = process.env.PORT ||
   3001;
 const host = 'localhost';
 
-let args;
-process.env.NODE_ENV === 'production' ?
-  args = [port] :
-  args = [port, host];
+const args = process.env.NODE_ENV === 'production' ?
+  [port] :
+  [port, host];
 
 args.push(() => {
   console.log(`Listening: http://${ host }:${ port }\n`);
@@ -135,6 +126,8 @@ if (require.main === module) {
 // ----------------------------------------
 // Error Handling
 // ----------------------------------------
+const createError = require('http-errors');
+
 app.use((err, req, res, next) => {
   if (res.headersSent) {
     return next(err);

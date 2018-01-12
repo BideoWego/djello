@@ -6,11 +6,15 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      boards: [
-       { id: 1, name: 'Foo' },
-       { id: 2, name: 'Bar' }
-      ]
+      boards: []
     };
+  }
+
+  async componentDidMount() {
+    const response = await fetch('http://localhost:3001/boards');
+    console.log(response);
+    const boards = await response.json();
+    this.setState({ boards });
   }
 
   render() {

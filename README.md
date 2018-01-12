@@ -20,6 +20,7 @@ List
 Card
 - name
 - description
+- priority
 - completedAt
 - listId
 
