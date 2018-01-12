@@ -1,4 +1,5 @@
 'use strict';
+const { Board } = require('../models');
 
 module.exports = {
   up: (queryInterface, Sequelize) => {
@@ -12,6 +13,16 @@ module.exports = {
         isBetaMember: false
       }], {});
     */
+    const boards = [{
+      id: 1,
+      name: "Foo",
+      userId: 1
+    }, {
+      id: 2,
+      name: "Bar",
+      userId: 1
+    }];
+    return queryInterface.bulkInsert('Boards', boards);
   },
 
   down: (queryInterface, Sequelize) => {
@@ -22,5 +33,6 @@ module.exports = {
       Example:
       return queryInterface.bulkDelete('Person', null, {});
     */
+    return queryInterface.bulkDelete('Boards', null, {}, Board);
   }
 };

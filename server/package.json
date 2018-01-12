@@ -10,7 +10,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon app.js",
     "sql": "./node_modules/.bin/sequelize",
-    "seeds": "npm run sql db:migrate:undo:all && npm run sql db:migrate && npm run sql db:seed",
+    "seeds": "npm run sql db:migrate:undo:all && npm run sql db:migrate && npm run sql db:seed:all",
     "seed": "npm run seeds",
     "console": "node repl.js",
     "c": "npm run console"

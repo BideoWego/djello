@@ -97,8 +97,10 @@ app.use(morganToolkit());
 // ----------------------------------------
 // Routes
 // ----------------------------------------
+const usersRouter = require('./routers/users');
 const boardsRouter = require('./routers/boards');
 
+app.use('/users', usersRouter);
 app.use('/boards', boardsRouter);
 
 

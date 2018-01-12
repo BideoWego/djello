@@ -1,15 +1,15 @@
 const express = require('express');
 const router = express.Router();
+const { Board } = require('../models');
 
 
-const _boards = [
- { id: 1, name: 'Foo' },
- { id: 2, name: 'Bar' }
-];
-
-
-router.get('/', (req, res) => {
-  res.json(_boards);
+router.get('/', async (req, res, next) => {
+  try {
+    const boards = await Board.findAll();
+    res.json(boards);
+  } catch (e) {
+    next(e);
+  }
 });
 
 

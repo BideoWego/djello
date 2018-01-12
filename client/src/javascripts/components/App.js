@@ -1,30 +1,31 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Boards, Title } from '.';
 
-
-class App extends Component {
-  constructor() {
-    super();
-    this.state = {
-      boards: []
-    };
-  }
-
-  async componentDidMount() {
-    const response = await fetch('http://localhost:3001/boards');
-    console.log(response);
-    const boards = await response.json();
-    this.setState({ boards });
-  }
-
-  render() {
-    return (
-      <div className="App">
-        <Title title="Djello" />
-        <Boards boards={this.state.boards} />
-      </div>
-    );
-  }
-}
+const App = ({ users, boards, currentUser }) => (
+  <div className="App">
+    <Title title="Djello" />
+    <div className="currentUser">
+      <h1>Current User</h1>
+      <pre>
+        {JSON.stringify(
+          currentUser,
+          (k, v) => k === 'passwordHash' ? '[FILTERED]' : v ,
+          2
+        )}
+      </pre>
+    </div>
+    <div className="users">
+      <h1>Users</h1>
+      <pre>
+        {JSON.stringify(
+          users,
+          (k, v) => k === 'passwordHash' ? '[FILTERED]' : v ,
+          2
+        )}
+      </pre>
+    </div>
+    <Boards boards={boards} />
+  </div>
+);
 
 export default App;
