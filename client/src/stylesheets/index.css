@@ -1,0 +1,8 @@
+.Navigation {
+  background: #eee;
+}
+
+.Navigation img.brand {
+  width: 32px;
+  margin-right: 4px;
+}

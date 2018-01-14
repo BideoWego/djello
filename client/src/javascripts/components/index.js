@@ -1,9 +1,9 @@
 import App from './App';
-import Boards from './Boards';
 import Title from './Title';
+import Navigation from './Navigation';
 
 export {
   App,
   Title,
-  Boards
+  Navigation
 };

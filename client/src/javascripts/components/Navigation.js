@@ -1,0 +1,73 @@
+import React from 'react';
+import {
+  NavLink as RRNavLink
+} from 'react-router-dom';
+import {
+  Collapse,
+  Navbar,
+  NavbarToggler,
+  NavbarBrand,
+  Nav,
+  NavItem,
+  NavLink,
+  UncontrolledDropdown,
+  DropdownToggle,
+  DropdownMenu,
+  DropdownItem
+} from 'reactstrap';
+
+const Navigation = ({ brand, currentUser, boards, isOpen, toggle }) => (
+  <div className="Navigation">
+    <Navbar color="faded" light expand="md">
+      <NavbarBrand href="/">
+        <img src="/djello.png" alt="Djello" className="brand img-responsive" />
+        {brand}
+      </NavbarBrand>
+      <NavbarToggler onClick={toggle} />
+      <Collapse isOpen={isOpen} navbar>
+        {currentUser ? (
+          <Nav className="ml-auto" navbar>
+            {/* Current User */}
+            <NavItem>
+              <NavLink disabled>
+                {currentUser.email}
+              </NavLink>
+            </NavItem>
+
+            {/* Boards */}
+            <UncontrolledDropdown nav inNavbar>
+              <DropdownToggle nav caret>
+                Boards
+              </DropdownToggle>
+              <DropdownMenu>
+                {boards.length ? (
+                  boards.map(board => (
+                    <DropdownItem className="text-muted">
+                      {board.name}
+                    </DropdownItem>
+                  ))
+                ) : (
+                  <DropdownItem className="text-muted">
+                    No boards
+                  </DropdownItem>
+                )}
+              </DropdownMenu>
+            </UncontrolledDropdown>
+
+            {/* Logout */}
+            <NavItem>
+              <NavLink
+                activeClassName="active"
+                to="/logout"
+                tag={RRNavLink}>
+                Logout
+              </NavLink>
+            </NavItem>
+          </Nav>
+        ) : null}
+      </Collapse>
+    </Navbar>
+  </div>
+);
+
+export default Navigation;
