@@ -6,9 +6,9 @@ import { getUsers, getBoards, getCurrentUser } from '../actions';
 
 const mapStateToProps = state => {
   return {
-    boards: state.boards,
-    users: state.users,
-    currentUser: state.currentUser
+    boards: state.boardsInfo.boards,
+    users: state.usersInfo.users,
+    currentUser: state.currentUserInfo.currentUser
   };
 };
 
