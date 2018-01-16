@@ -9,6 +9,10 @@ module.exports = (sequelize, DataTypes) => {
     List.belongsTo(models.Board, {
       foreignKey: 'boardId'
     });
+
+    List.hasMany(models.Card, {
+      foreignKey: 'listId'
+    });
   };
 
   return List;
