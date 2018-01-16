@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const { Board } = require('../models');
+const { Board, List } = require('../models');
 
 
 // ----------------------------------------
@@ -21,7 +21,7 @@ router.get('/', async (req, res, next) => {
 // ----------------------------------------
 router.get('/:id', async (req, res, next) => {
   try {
-    const board = await Board.findById(req.params.id);
+    const board = await Board.findById(req.params.id, { include: List });
     res.json(board);
   } catch (e) {
     next(e);
