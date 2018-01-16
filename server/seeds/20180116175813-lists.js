@@ -14,9 +14,11 @@ module.exports = {
       }], {});
     */
     const lists = [{
+      id: 1,
       name: 'Fiz',
       boardId: 1
     }, {
+      id: 2,
       name: 'Baz',
       boardId: 2
     }];

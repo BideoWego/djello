@@ -38,6 +38,10 @@ const Navigation = ({ brand, currentUser, boards, onClickBoard, isOpen, toggle }
                 Boards
               </DropdownToggle>
               <DropdownMenu>
+                <DropdownItem>
+                  + Create Board
+                </DropdownItem>
+                <DropdownItem divider />
                 {boards.length ? (
                   boards.map(board => (
                     <DropdownItem className="text-muted" key={board.id}>

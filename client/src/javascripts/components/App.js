@@ -10,14 +10,16 @@ const App = ({ users, boards, currentUser, board }) => (
       brand="Djello"
       currentUser={currentUser}
       boards={boards} />
-    <Switch>
-      <Route path="/boards/:id" component={BoardContainer} />
-      <Route
-        path="*"
-        render={() => (
-          <p className="text-muted text-center">Select or create a board</p>
-        )} />
-    </Switch>
+    <main className="container">
+      <Switch>
+        <Route path="/boards/:id" component={BoardContainer} />
+        <Route
+          path="*"
+          render={() => (
+            <p className="text-muted text-center">Select or create a board</p>
+          )} />
+      </Switch>
+    </main>
   </div>
 );
 
