@@ -6,6 +6,10 @@ import { combineReducers } from 'redux';
 // Initial State
 // ----------------------------------------
 const initialState = {
+  boardInfo: {
+    board: null,
+    isFetching: false
+  },
   boardsInfo: {
     boards: [],
     isFetching: false
@@ -35,6 +39,45 @@ class BaseReducer {
       this[this.action.type]() :
       this.state;
   }
+}
+
+
+// ----------------------------------------
+// Board Info
+// ----------------------------------------
+class BoardInfoReducer extends BaseReducer {
+  [actions.REQUESTING_BOARD]() {
+    return {
+      ...this.state,
+      isFetching: true
+    };
+  }
+
+  [actions.REQUEST_SUCCEEDED_BOARD]() {
+    return {
+      ...this.state,
+      isFetching: false
+    };
+  }
+
+  [actions.REQUEST_FAILED_BOARD]() {
+    return {
+      ...this.state,
+      isFetching: false,
+      error: this.action.error
+    };
+  }
+
+  [actions.SET_BOARD]() {
+    return {
+      ...this.state,
+      board: this.action.data
+    };
+  }
+}
+
+export function boardInfo(state=initialState.boardInfo, action) {
+  return new BoardInfoReducer(state, action).run();
 }
 
 
@@ -157,6 +200,7 @@ export function currentUserInfo(state=initialState.currentUserInfo, action) {
 
 
 export default combineReducers({
+  boardInfo,
   boardsInfo,
   usersInfo,
   currentUserInfo

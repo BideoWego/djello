@@ -25,6 +25,7 @@ ReactDOM.render(
   <Provider store={store}>
     <Router>
       <Route path="/" component={AppContainer} />
+      {/* TODO Error404 route and component here */}
     </Router>
   </Provider>,
   document.getElementById('root')

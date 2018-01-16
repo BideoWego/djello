@@ -3,15 +3,14 @@ import { connect } from 'react-redux';
 import { App } from '../components';
 import { getUsers, getBoards, getCurrentUser } from '../actions';
 
-
 const mapStateToProps = state => {
   return {
+    board: state.boardInfo.board,
     boards: state.boardsInfo.boards,
     users: state.usersInfo.users,
     currentUser: state.currentUserInfo.currentUser
   };
 };
-
 
 const mapDispatchToProps = dispatch => {
   return {
@@ -20,7 +19,6 @@ const mapDispatchToProps = dispatch => {
     getCurrentUser: () => dispatch(getCurrentUser())
   };
 };
-
 
 class AppContainer extends Component {
   componentDidMount() {
@@ -32,7 +30,11 @@ class AppContainer extends Component {
   render() {
     return (
       <div className="AppContainer">
-        <App {...this.props} />
+        <App
+          users={this.props.users}
+          boards={this.props.boards}
+          currentUser={this.props.currentUser}
+          board={this.props.board} />
       </div>
     );
   }

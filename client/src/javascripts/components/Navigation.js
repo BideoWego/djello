@@ -1,7 +1,5 @@
 import React from 'react';
-import {
-  NavLink as RRNavLink
-} from 'react-router-dom';
+import { NavLink as RRNavLink } from 'react-router-dom';
 import {
   Collapse,
   Navbar,
@@ -16,7 +14,7 @@ import {
   DropdownItem
 } from 'reactstrap';
 
-const Navigation = ({ brand, currentUser, boards, isOpen, toggle }) => (
+const Navigation = ({ brand, currentUser, boards, onClickBoard, isOpen, toggle }) => (
   <div className="Navigation">
     <Navbar color="faded" light expand="md">
       <NavbarBrand href="/">
@@ -35,15 +33,20 @@ const Navigation = ({ brand, currentUser, boards, isOpen, toggle }) => (
             </NavItem>
 
             {/* Boards */}
-            <UncontrolledDropdown nav inNavbar>
+            <UncontrolledDropdown nav>
               <DropdownToggle nav caret>
                 Boards
               </DropdownToggle>
               <DropdownMenu>
                 {boards.length ? (
                   boards.map(board => (
-                    <DropdownItem className="text-muted">
-                      {board.name}
+                    <DropdownItem className="text-muted" key={board.id}>
+                      <NavLink
+                        activeClassName="active"
+                        to={`/boards/${ board.id }`}
+                        tag={RRNavLink}>
+                        {board.name}
+                      </NavLink>
                     </DropdownItem>
                   ))
                 ) : (
