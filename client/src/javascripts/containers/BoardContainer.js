@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Board } from '../components';
-import { getBoard } from '../actions';
+import { getBoard, destroyBoard } from '../actions';
 
 const mapStateToProps = state => {
   return {
@@ -9,9 +9,13 @@ const mapStateToProps = state => {
   };
 };
 
-const mapDispatchToProps = dispatch => {
+const mapDispatchToProps = (dispatch, ownProps) => {
   return {
-    getBoard: id => dispatch(getBoard(id))
+    getBoard: id => dispatch(getBoard(id)),
+    destroyBoard: id => {
+      dispatch(destroyBoard(id));
+      ownProps.history.push('/');
+    }
   };
 };
 
@@ -31,6 +35,7 @@ class BoardContainer extends Component {
       <div className="BoardContainer">
         <Board
           board={this.props.boardInfo.board}
+          onClickBoardDelete={this.props.destroyBoard}
           isFetching={this.props.boardInfo.isFetching} />
       </div>
     );

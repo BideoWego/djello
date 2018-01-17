@@ -46,15 +46,58 @@ export function setBoard(board) {
 
 export function getBoard(id) {
   return async dispatch => {
-    dispatch(requestingBoard());
-
     try {
+      dispatch(requestingBoard());
       const response = await fetch(apiUrlFor(`/boards/${ id }`));
       const board = await response.json();
       dispatch(requestSucceededBoard());
       dispatch(setBoard(board));
     } catch (e) {
       dispatch(requestFailedBoard(e));
+    }
+  };
+}
+
+
+// ----------------------------------------
+// Board Destroy
+// ----------------------------------------
+export const REQUESTING_BOARD_DESTROY = 'REQUESTING_BOARD_DESTROY';
+export const REQUEST_SUCCEEDED_BOARD_DESTROY = 'REQUEST_SUCCEEDED_BOARD_DESTROY';
+export const REQUEST_FAILED_BOARD_DESTROY = 'REQUEST_FAILED_BOARD_DESTROY';
+
+export function requestingBoardDestroy() {
+  return {
+    type: REQUESTING_BOARD_DESTROY
+  };
+}
+
+export function requestSucceededBoardDestroy() {
+  return {
+    type: REQUEST_SUCCEEDED_BOARD_DESTROY
+  };
+}
+
+export function requestFailedBoardDestroy(error) {
+  return {
+    type: REQUEST_FAILED_BOARD_DESTROY,
+    error
+  };
+}
+
+export function destroyBoard(id) {
+  return async dispatch => {
+    try {
+      dispatch(requestingBoardDestroy());
+      const response = await fetch(apiUrlFor(`/boards/${ id }`), {
+        method: 'DELETE'
+      });
+      // TODO check response status code
+      const board = await response.json();
+      dispatch(requestSucceededBoardDestroy(board));
+      dispatch(getBoards());
+    } catch (e) {
+      dispatch(requestFailedBoardDestroy(e));
     }
   };
 }
@@ -96,9 +139,8 @@ export function setBoards(boards) {
 
 export function getBoards() {
   return async dispatch => {
-    dispatch(requestingBoards());
-
     try {
+      dispatch(requestingBoards());
       const response = await fetch(apiUrlFor('/boards'));
       const boards = await response.json();
       dispatch(requestSucceededBoards());
@@ -145,9 +187,8 @@ export function setUsers(users) {
 
 export function getUsers() {
   return async dispatch => {
-    dispatch(requestingUsers());
-
     try {
+      dispatch(requestingUsers());
       const response = await fetch(apiUrlFor('/users'));
       const users = await response.json();
       dispatch(requestSucceededUsers());
@@ -195,9 +236,8 @@ export function setCurrentUser(currentUser) {
 
 export function getCurrentUser() {
   return async dispatch => {
-    dispatch(requestingCurrentUser());
-
     try {
+      dispatch(requestingCurrentUser());
       const response = await fetch(apiUrlFor('/users/me'));
       const currentUser = await response.json();
       dispatch(requestSucceededCurrentUser());

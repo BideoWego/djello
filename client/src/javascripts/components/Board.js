@@ -1,7 +1,7 @@
 import React from 'react';
 import { List } from '.';
 
-const Board = ({ board, isFetching }) => {
+const Board = ({ board, onClickBoardDelete, isFetching }) => {
   if (isFetching) {
     return <p className="text-muted">Loading...</p>
   }
@@ -18,7 +18,6 @@ const Board = ({ board, isFetching }) => {
     <div className="col" key="create-list">
       <a href="" className="text-muted" onClick={e => {
         e.preventDefault();
-        console.log('Creating list...');
         return false;
       }} >
         + Create a list
@@ -28,7 +27,20 @@ const Board = ({ board, isFetching }) => {
 
   return (
     <div className="Board">
-      <h2>Board: {board.name}</h2>
+      <h2>
+        Board: {board.name}
+        {' '}
+        <a
+          href=""
+          className="text-danger"
+          onClick={e => {
+            e.preventDefault();
+            onClickBoardDelete(board.id);
+            return false;
+          }}>
+          &times;
+        </a>
+      </h2>
       <div className="lists row">
         {board.Lists.length ? (
           board.Lists.map(list => (

@@ -74,6 +74,29 @@ class BoardInfoReducer extends BaseReducer {
       board: this.action.data
     };
   }
+
+  [actions.REQUESTING_BOARD_DESTROY]() {
+    return {
+      ...this.state,
+      isFetching: true
+    };
+  }
+
+  [actions.REQUEST_SUCCEEDED_BOARD_DESTROY]() {
+    return {
+      ...this.state,
+      isFetching: false,
+      board: null
+    };
+  }
+
+  [actions.REQUEST_FAILED_BOARD_DESTROY]() {
+    return {
+      ...this.state,
+      isFetching: false,
+      error: this.action.error
+    };
+  }
 }
 
 export function boardInfo(state=initialState.boardInfo, action) {
