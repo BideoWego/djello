@@ -97,6 +97,30 @@ class BoardInfoReducer extends BaseReducer {
       error: this.action.error
     };
   }
+
+  [actions.REQUESTING_BOARD_CREATE]() {
+    return {
+      ...this.state,
+      isFetching: true
+    };
+  }
+
+  [actions.REQUEST_SUCCEEDED_BOARD_CREATE]() {
+    console.log(this.action.data);
+    return {
+      ...this.state,
+      isFetching: false,
+      board: this.action.data
+    };
+  }
+
+  [actions.REQUEST_FAILED_BOARD_CREATE]() {
+    return {
+      ...this.state,
+      isFetching: false,
+      error: this.action.error
+    };
+  }
 }
 
 export function boardInfo(state=initialState.boardInfo, action) {

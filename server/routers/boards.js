@@ -41,6 +41,29 @@ router.get('/:id', async (req, res, next) => {
 
 
 // ----------------------------------------
+// Create
+// ----------------------------------------
+router.post('/', async (req, res, next) => {
+  try {
+    const boardParams = {
+      name: req.body.board.name,
+      userId: 1
+    };
+    let board = await Board.create(boardParams);
+    board = await Board.findById(board.id, {
+      include: {
+        model: List,
+        include: Card
+      }
+    });
+    res.json(board);
+  } catch (e) {
+    next(e);
+  }
+});
+
+
+// ----------------------------------------
 // Destroy
 // ----------------------------------------
 router.delete('/:id', async (req, res, next) => {

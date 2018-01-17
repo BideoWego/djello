@@ -1,24 +1,35 @@
-import React, { Component } from 'react';
+import React from 'react';
 import {
   Button,
   Modal,
   ModalHeader,
   ModalBody,
   ModalFooter,
-  Input
+  Input,
+  Form
 } from 'reactstrap';
 
 const NewBoard = ({ toggle, isOpen, onSubmit }) => (
   <div className="NewBoard">
     <Modal isOpen={isOpen} toggle={toggle}>
       <ModalHeader toggle={toggle}>Create a Board</ModalHeader>
-      <ModalBody>
-        <Input placeholder="Board name..." />
-      </ModalBody>
-      <ModalFooter>
-        <Button color="primary" onClick={toggle}>Submit</Button>{' '}
-        <Button color="secondary" onClick={toggle}>Cancel</Button>
-      </ModalFooter>
+      <Form onSubmit={e => {
+        onSubmit(e);
+        toggle();
+      }}>
+        <ModalBody>
+          <Input
+            name="board[name]"
+            placeholder="Board name..."
+            autoFocus />
+        </ModalBody>
+        <ModalFooter>
+          <Button color="primary">
+            Submit
+          </Button>{' '}
+          <Button color="secondary" onClick={toggle}>Cancel</Button>
+        </ModalFooter>
+      </Form>
     </Modal>
   </div>
 );

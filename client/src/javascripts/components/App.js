@@ -1,6 +1,10 @@
 import React from 'react';
-import { Title, NewBoard } from '.';
-import { NavigationContainer, BoardContainer } from '../containers';
+import { Title } from '.';
+import {
+  NavigationContainer,
+  BoardContainer,
+  NewBoardContainer
+} from '../containers';
 import { Switch, Route } from 'react-router-dom';
 
 const App = ({
@@ -13,7 +17,9 @@ const App = ({
 }) => (
   <div className="App">
     <Title title="Djello" />
-    <NewBoard isOpen={isOpenNewBoard} toggle={onToggleNewBoard} />
+    <NewBoardContainer
+      isOpen={isOpenNewBoard}
+      toggle={onToggleNewBoard} />
     <NavigationContainer
       brand="Djello"
       currentUser={currentUser}
