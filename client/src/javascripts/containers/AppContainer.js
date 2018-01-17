@@ -21,16 +21,31 @@ const mapDispatchToProps = dispatch => {
 };
 
 class AppContainer extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      isOpenNewBoard: false
+    };
+  }
+
   componentDidMount() {
     this.props.getUsers();
     this.props.getBoards();
     this.props.getCurrentUser();
   }
 
+  onToggleNewBoard = () => {
+    this.setState({
+      isOpenNewBoard: !this.state.isOpenNewBoard
+    });
+  };
+
   render() {
     return (
       <div className="AppContainer">
         <App
+          isOpenNewBoard={this.state.isOpenNewBoard}
+          onToggleNewBoard={this.onToggleNewBoard}
           users={this.props.users}
           boards={this.props.boards}
           currentUser={this.props.currentUser}

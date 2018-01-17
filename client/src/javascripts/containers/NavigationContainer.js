@@ -21,6 +21,7 @@ class NavigationContainer extends Component {
         <Navigation
           brand={this.props.brand}
           currentUser={this.props.currentUser}
+          onClickCreateBoard={this.props.onClickCreateBoard}
           boards={this.props.boards}
           isOpen={this.state.isOpen}
           toggle={this.toggle} />

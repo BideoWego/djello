@@ -3,6 +3,7 @@ import Board from './Board';
 import Card from './Card';
 import Title from './Title';
 import List from './List';
+import NewBoard from './NewBoard';
 import Navigation from './Navigation';
 
 export {
@@ -11,5 +12,6 @@ export {
   Card,
   Title,
   List,
+  NewBoard,
   Navigation
 };

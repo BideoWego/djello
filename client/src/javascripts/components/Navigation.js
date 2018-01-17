@@ -14,7 +14,15 @@ import {
   DropdownItem
 } from 'reactstrap';
 
-const Navigation = ({ brand, currentUser, boards, onClickBoard, isOpen, toggle }) => (
+const Navigation = ({
+  brand,
+  currentUser,
+  boards,
+  onClickBoard,
+  isOpen,
+  toggle,
+  onClickCreateBoard
+}) => (
   <div className="Navigation">
     <Navbar color="faded" light expand="md">
       <NavbarBrand href="/">
@@ -39,7 +47,13 @@ const Navigation = ({ brand, currentUser, boards, onClickBoard, isOpen, toggle }
               </DropdownToggle>
               <DropdownMenu>
                 <DropdownItem>
-                  + Create Board
+                  <a href="" onClick={e => {
+                    e.preventDefault();
+                    onClickCreateBoard();
+                    return false;
+                  }}>
+                    + Create Board
+                  </a>
                 </DropdownItem>
                 <DropdownItem divider />
                 {boards.length ? (
