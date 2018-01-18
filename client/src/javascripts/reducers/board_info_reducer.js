@@ -106,17 +106,35 @@ class BoardInfoReducer extends BaseReducer {
     return {
       ...this.state,
       isFetching: false
-      // board: {
-      //   ...this.state.board,
-      //   Lists: [
-      //     ...this.state.board.Lists,
-      //     this.action.data
-      //   ]
-      // }
     };
   }
 
   [actions.REQUEST_FAILED_LIST_CREATE]() {
+    return {
+      ...this.state,
+      isFetching: false,
+      error: this.action.error
+    };
+  }
+
+  // ----------------------------------------
+  // Card Create
+  // ----------------------------------------
+  [actions.REQUESTING_CARD_CREATE]() {
+    return {
+      ...this.state,
+      isFetching: true
+    };
+  }
+
+  [actions.REQUEST_SUCCEEDED_CARD_CREATE]() {
+    return {
+      ...this.state,
+      isFetching: false
+    };
+  }
+
+  [actions.REQUEST_FAILED_CARD_CREATE]() {
     return {
       ...this.state,
       isFetching: false,
