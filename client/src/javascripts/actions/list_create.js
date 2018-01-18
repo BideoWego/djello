@@ -41,7 +41,6 @@ export function createList(data) {
       });
       // TODO check response status code
       const list = await response.json();
-      console.log(list);
       dispatch(requestSucceededListCreate(list));
       dispatch(getBoard(list.boardId));
     } catch (e) {
