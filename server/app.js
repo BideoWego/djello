@@ -107,6 +107,9 @@ app.use('/boards', boardsRouter);
 const listsRouter = require('./routers/lists');
 app.use('/lists', listsRouter);
 
+const cardsRouter = require('./routers/cards');
+app.use('/cards', cardsRouter);
+
 
 // ----------------------------------------
 // Server
