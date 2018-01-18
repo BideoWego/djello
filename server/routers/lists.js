@@ -14,7 +14,7 @@ router.post('/', async (req, res, next) => {
   try {
     const listParams = {
       name: req.body.list.name,
-      boardId: req.body.list.boarId
+      boardId: req.body.list.boardId
     };
     let list = await List.create(listParams);
     list = await List.findById(list.id, { include: Card });

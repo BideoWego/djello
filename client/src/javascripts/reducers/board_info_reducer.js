@@ -105,14 +105,14 @@ class BoardInfoReducer extends BaseReducer {
   [actions.REQUEST_SUCCEEDED_LIST_CREATE]() {
     return {
       ...this.state,
-      isFetching: false,
-      board: {
-        ...this.state.board,
-        Lists: [
-          ...this.state.board.Lists,
-          this.action.data
-        ]
-      }
+      isFetching: false
+      // board: {
+      //   ...this.state.board,
+      //   Lists: [
+      //     ...this.state.board.Lists,
+      //     this.action.data
+      //   ]
+      // }
     };
   }
 

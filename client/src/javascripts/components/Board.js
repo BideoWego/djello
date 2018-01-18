@@ -1,5 +1,6 @@
 import React from 'react';
 import { List } from '.';
+import { NewListContainer } from '../containers';
 
 const Board = ({
   board,
@@ -19,21 +20,9 @@ const Board = ({
     );
   }
 
-  const createList = (
-    <div className="col" key="create-list">
-      <a href="" className="text-muted" onClick={e => {
-        e.preventDefault();
-        onClickListCreate();
-        return false;
-      }} >
-        + Create a list
-      </a>
-    </div>
-  );
-
   return (
     <div className="Board">
-      <h2>
+      <h2 className="text-center">
         Board: {board.name}
         {' '}
         <a
@@ -47,21 +36,23 @@ const Board = ({
           &times;
         </a>
       </h2>
-      <div className="lists row">
+      <div className="lists row mt-4">
         {board.Lists.length ? (
           board.Lists.map(list => (
-            <div className="col" key={list.id}>
+            <div className="col-3" key={list.id}>
               <List list={list} />
             </div>
           ))
         ) : (
-          <div className="col">
+          <div className="col-3">
             <p className="text-muted text-center">
               No lists yet
             </p>
           </div>
         )}
-        {createList}
+        <div className="col-3">
+          <NewListContainer board={board} />
+        </div>
       </div>
     </div>
   );

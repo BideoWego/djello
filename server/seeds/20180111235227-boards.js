@@ -14,11 +14,9 @@ module.exports = {
       }], {});
     */
     const boards = [{
-      id: 1,
       name: "Foo",
       userId: 1
     }, {
-      id: 2,
       name: "Bar",
       userId: 1
     }];

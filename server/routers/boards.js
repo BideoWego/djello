@@ -31,7 +31,11 @@ router.get('/:id', async (req, res, next) => {
       include: {
         model: List,
         include: Card
-      }
+      },
+      order: [
+        [List, 'createdAt', 'ASC']
+      ]
+      // [models.Image, 'updated_at', 'asc]
     });
     res.json(board);
   } catch (e) {

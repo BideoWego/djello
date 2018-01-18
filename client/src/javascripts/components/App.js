@@ -25,7 +25,7 @@ const App = ({
       currentUser={currentUser}
       onClickBoardCreate={onToggleNewBoard}
       boards={boards} />
-    <main className="container">
+    <main className="container-fluid mt-4">
       <Switch>
         <Route path="/boards/:id" component={BoardContainer} />
         <Route

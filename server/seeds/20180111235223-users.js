@@ -14,7 +14,6 @@ module.exports = {
       }], {});
     */
     const users = [{
-      id: 1,
       fname: 'George',
       lname: 'Costanza',
       email: 'george_costanza@gmail.com',

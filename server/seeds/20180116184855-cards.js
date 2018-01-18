@@ -14,25 +14,21 @@ module.exports = {
       }], {});
     */
     const cards = [{
-      id: 1,
       name: 'Barfoo',
       description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae amet deserunt nobis ut fugit numquam maxime ducimus blanditiis quis earum nisi aliquid error, praesentium quas consequatur dicta distinctio eum suscipit.',
       priority: 1,
       listId: 1
     }, {
-      id: 2,
       name: 'Bazfiz',
       description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae amet deserunt nobis ut fugit numquam maxime ducimus blanditiis quis earum nisi aliquid error, praesentium quas consequatur dicta distinctio eum suscipit.',
       priority: 2,
       listId: 1
     }, {
-      id: 3,
       name: 'Farboo',
       description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae amet deserunt nobis ut fugit numquam maxime ducimus blanditiis quis earum nisi aliquid error, praesentium quas consequatur dicta distinctio eum suscipit.',
       priority: 1,
       listId: 2
     }, {
-      id: 4,
       name: 'Bizfaz',
       description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae amet deserunt nobis ut fugit numquam maxime ducimus blanditiis quis earum nisi aliquid error, praesentium quas consequatur dicta distinctio eum suscipit.',
       priority: 2,

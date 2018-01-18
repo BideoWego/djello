@@ -28,7 +28,7 @@ export function requestFailedListCreate(error) {
   };
 }
 
-export function createBoard(data) {
+export function createList(data) {
   return async dispatch => {
     try {
       dispatch(requestingListCreate());
@@ -41,8 +41,9 @@ export function createBoard(data) {
       });
       // TODO check response status code
       const list = await response.json();
+      console.log(list);
       dispatch(requestSucceededListCreate(list));
-      dispatch(getBoard());
+      dispatch(getBoard(list.boardId));
     } catch (e) {
       dispatch(requestFailedListCreate(e));
     }
