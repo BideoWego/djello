@@ -87,7 +87,7 @@ router.delete('/:id', async (req, res, next) => {
       options
     );
 
-    const cards = await Card.destroy(
+    await Card.destroy(
       { where: { listId: { [Op.in]: listIds } } },
       options
     );

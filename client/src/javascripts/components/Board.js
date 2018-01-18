@@ -1,6 +1,5 @@
 import React from 'react';
-import { List } from '.';
-import { NewListContainer } from '../containers';
+import { NewListContainer, ListContainer } from '../containers';
 
 const Board = ({
   board,
@@ -40,7 +39,7 @@ const Board = ({
         {board.Lists.length ? (
           board.Lists.map(list => (
             <div className="col-3" key={list.id}>
-              <List list={list} />
+              <ListContainer list={list} />
             </div>
           ))
         ) : (

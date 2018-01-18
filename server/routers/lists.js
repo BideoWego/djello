@@ -35,7 +35,7 @@ router.delete('/:id', async (req, res, next) => {
     const options = { transaction };
     const list = await List.findById(req.params.id, options);
 
-    const cards = await Card.destroy(
+    await Card.destroy(
       { where: { listId: req.params.id } },
       options
     );
