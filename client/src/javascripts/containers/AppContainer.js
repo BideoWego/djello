@@ -38,7 +38,7 @@ class AppContainer extends Component {
     this.setState({
       isOpenNewBoard: !this.state.isOpenNewBoard
     });
-  };
+  }
 
   render() {
     return (

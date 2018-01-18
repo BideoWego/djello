@@ -23,7 +23,7 @@ const App = ({
     <NavigationContainer
       brand="Djello"
       currentUser={currentUser}
-      onClickCreateBoard={onToggleNewBoard}
+      onClickBoardCreate={onToggleNewBoard}
       boards={boards} />
     <main className="container">
       <Switch>

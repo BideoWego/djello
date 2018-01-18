@@ -1,7 +1,12 @@
 import React from 'react';
 import { List } from '.';
 
-const Board = ({ board, onClickBoardDelete, isFetching }) => {
+const Board = ({
+  board,
+  onClickListCreate,
+  onClickBoardDelete,
+  isFetching
+}) => {
   if (isFetching) {
     return <p className="text-muted">Loading...</p>
   }
@@ -18,6 +23,7 @@ const Board = ({ board, onClickBoardDelete, isFetching }) => {
     <div className="col" key="create-list">
       <a href="" className="text-muted" onClick={e => {
         e.preventDefault();
+        onClickListCreate();
         return false;
       }} >
         + Create a list

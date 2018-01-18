@@ -13,6 +13,7 @@ app.locals.appName = 'My App';
 // ----------------------------------------
 if (process.env.NODE_ENV !== 'production') {
   require('dotenv').config();
+  app.disable('etag');
 }
 
 
@@ -98,10 +99,13 @@ app.use(morganToolkit());
 // Routes
 // ----------------------------------------
 const usersRouter = require('./routers/users');
-const boardsRouter = require('./routers/boards');
-
 app.use('/users', usersRouter);
+
+const boardsRouter = require('./routers/boards');
 app.use('/boards', boardsRouter);
+
+const listsRouter = require('./routers/lists');
+app.use('/lists', listsRouter);
 
 
 // ----------------------------------------

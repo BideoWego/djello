@@ -1,0 +1,18 @@
+{
+  "boardInfo": {
+    "board": null,
+    "isFetching": false
+  },
+  "boardsInfo": {
+    "boards": [],
+    "isFetching": false
+  },
+  "usersInfo": {
+    "users": [],
+    "isFetching": false
+  },
+  "currentUserInfo": {
+    "currentUser": null,
+    "isFetching": false
+  }
+}

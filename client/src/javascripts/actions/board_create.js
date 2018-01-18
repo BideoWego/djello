@@ -41,7 +41,6 @@ export function createBoard(data) {
       });
       // TODO check response status code
       const board = await response.json();
-      console.log(board);
       dispatch(requestSucceededBoardCreate(board));
       dispatch(getBoards());
     } catch (e) {

@@ -16,12 +16,13 @@ class NavigationContainer extends Component {
   }
 
   render() {
+    console.log(this.props);
     return (
       <div className="NavigationContainer">
         <Navigation
           brand={this.props.brand}
           currentUser={this.props.currentUser}
-          onClickCreateBoard={this.props.onClickCreateBoard}
+          onClickBoardCreate={this.props.onClickBoardCreate}
           boards={this.props.boards}
           isOpen={this.state.isOpen}
           toggle={this.toggle} />

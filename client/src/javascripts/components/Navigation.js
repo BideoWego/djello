@@ -21,7 +21,7 @@ const Navigation = ({
   onClickBoard,
   isOpen,
   toggle,
-  onClickCreateBoard
+  onClickBoardCreate
 }) => (
   <div className="Navigation">
     <Navbar color="faded" light expand="md">
@@ -49,7 +49,7 @@ const Navigation = ({
                 <DropdownItem>
                   <a href="" onClick={e => {
                     e.preventDefault();
-                    onClickCreateBoard();
+                    onClickBoardCreate();
                     return false;
                   }}>
                     + Create Board
