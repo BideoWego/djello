@@ -35,7 +35,6 @@ router.get('/:id', async (req, res, next) => {
       order: [
         [List, 'createdAt', 'ASC']
       ]
-      // [models.Image, 'updated_at', 'asc]
     });
     res.json(board);
   } catch (e) {
