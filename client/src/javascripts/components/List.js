@@ -1,5 +1,6 @@
 import React from 'react';
 import { Card } from '.';
+import { NewCardContainer } from '../containers';
 
 const List = ({ list, onClickListDelete }) => {
   return (
@@ -18,17 +19,22 @@ const List = ({ list, onClickListDelete }) => {
           &times;
         </a>
       </h3>
-      {list.Cards.length ? (
-          <div className="row">
-            {list.Cards.map(card => (
-              <div className="col-12" key={card.id}>
-                <Card card={card} />
-              </div>
-            ))}
-          </div>
+      <div className="row">
+        {list.Cards.length ? (
+          list.Cards.map(card => (
+            <div className="col-12" key={card.id}>
+              <Card card={card} />
+            </div>
+          ))
         ) : (
-        <p className="text-muted">No cards yet</p>
-      )}
+          <div className="col-12">
+            <p className="text-muted">No cards yet</p>
+          </div>
+        )}
+        <div className="col-12">
+          <NewCardContainer list={list} />
+        </div>
+      </div>
     </div>
   );
 };

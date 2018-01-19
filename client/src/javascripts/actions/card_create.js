@@ -28,7 +28,7 @@ export function requestFailedCardCreate(error) {
   };
 }
 
-export function createList(data) {
+export function createCard(data) {
   return async dispatch => {
     try {
       dispatch(requestingCardCreate());

@@ -5,6 +5,7 @@ import Title from './Title';
 import List from './List';
 import NewBoard from './NewBoard';
 import NewList from './NewList';
+import NewCard from './NewCard';
 import Navigation from './Navigation';
 
 export {
@@ -15,5 +16,6 @@ export {
   List,
   NewBoard,
   NewList,
+  NewCard,
   Navigation
 };

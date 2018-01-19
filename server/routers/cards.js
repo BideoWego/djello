@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const { Card } = require('../models');
+const { Card, List } = require('../models');
 
 
 // ----------------------------------------
@@ -12,7 +12,8 @@ router.post('/', async (req, res, next) => {
       name: req.body.card.name,
       listId: req.body.card.listId
     };
-    const card = await Card.create(cardParams);
+    let card = await Card.create(cardParams);
+    card = await Card.findById(card.id, { include: List });
     res.json(card);
   } catch (e) {
     next(e);

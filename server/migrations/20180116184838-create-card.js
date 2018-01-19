@@ -12,10 +12,12 @@ module.exports = {
         type: Sequelize.STRING
       },
       description: {
-        type: Sequelize.TEXT
+        type: Sequelize.TEXT,
+        defaultValue: 'Describe me!'
       },
       priority: {
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        defaultValue: 1
       },
       completedAt: {
         type: Sequelize.DATE

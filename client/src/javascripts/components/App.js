@@ -15,7 +15,7 @@ const App = ({
   isOpenNewBoard,
   onToggleNewBoard
 }) => (
-  <div className="App">
+  <div className="App mb-5">
     <Title title="Djello" />
     <NewBoardContainer
       isOpen={isOpenNewBoard}
@@ -25,7 +25,7 @@ const App = ({
       currentUser={currentUser}
       onClickBoardCreate={onToggleNewBoard}
       boards={boards} />
-    <main className="container-fluid mt-4">
+    <main className="container-fluid mt-4 mb-5">
       <Switch>
         <Route path="/boards/:id" component={BoardContainer} />
         <Route
