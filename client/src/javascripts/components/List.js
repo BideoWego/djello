@@ -1,6 +1,5 @@
 import React from 'react';
-import { Card } from '.';
-import { NewCardContainer } from '../containers';
+import { NewCardContainer, CardContainer } from '../containers';
 
 const List = ({ list, onClickListDelete }) => {
   return (
@@ -23,7 +22,7 @@ const List = ({ list, onClickListDelete }) => {
         {list.Cards.length ? (
           list.Cards.map(card => (
             <div className="col-12" key={card.id}>
-              <Card card={card} />
+              <CardContainer card={card} />
             </div>
           ))
         ) : (

@@ -26,13 +26,8 @@ router.post('/', async (req, res, next) => {
 // ----------------------------------------
 router.delete('/:id', async (req, res, next) => {
   try {
-    const card = await Card.findById(req.params.id, options);
-
-    await Card.destroy(
-      { where: { cardId: req.params.id } },
-      options
-    );
-
+    const card = await Card.findById(req.params.id, { include: List });
+    await Card.destroy({ where: { id: req.params.id } });
     res.json(card);
   } catch (e) {
     next(e);

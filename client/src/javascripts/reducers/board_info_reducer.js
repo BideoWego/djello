@@ -141,6 +141,31 @@ class BoardInfoReducer extends BaseReducer {
       error: this.action.error
     };
   }
+
+  // ----------------------------------------
+  // Card Destroy
+  // ----------------------------------------
+  [actions.REQUESTING_CARD_DESTROY]() {
+    return {
+      ...this.state,
+      isFetching: true
+    };
+  }
+
+  [actions.REQUEST_SUCCEEDED_CARD_DESTROY]() {
+    return {
+      ...this.state,
+      isFetching: false
+    };
+  }
+
+  [actions.REQUEST_FAILED_CARD_DESTROY]() {
+    return {
+      ...this.state,
+      isFetching: false,
+      error: this.action.error
+    };
+  }
 }
 
 export default function boardInfo(state=initialState.boardInfo, action) {
