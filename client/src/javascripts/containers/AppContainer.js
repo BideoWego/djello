@@ -34,6 +34,12 @@ class AppContainer extends Component {
     this.props.getCurrentUser();
   }
 
+  componentWillReceiveProps(nextProps) {
+    if (this.props.board !== nextProps.board) {
+      this.props.history.push(`/boards/${ nextProps.board.id }`);
+    }
+  }
+
   onToggleNewBoard = () => {
     this.setState({
       isOpenNewBoard: !this.state.isOpenNewBoard
