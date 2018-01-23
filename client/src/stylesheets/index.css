@@ -1,8 +1,20 @@
 .Navigation {
-  background: #eee;
+  background: #ddd;
 }
 
 .Navigation img.brand {
   width: 32px;
   margin-right: 4px;
+}
+
+
+.List {
+  border-radius: 4px;
+  background: #eee;
+  padding: 16px;
+}
+
+
+.Card h4 {
+  margin-bottom: 0;
 }

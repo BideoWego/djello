@@ -10,7 +10,7 @@ const NewList = ({ board, toggle, isOpen, onSubmit }) => {
   if (!isOpen) {
     return (
       <div className="col" key="create-list">
-        <a href="" className="text-muted" onClick={e => {
+        <a href="" onClick={e => {
           e.preventDefault();
           toggle();
           return false;

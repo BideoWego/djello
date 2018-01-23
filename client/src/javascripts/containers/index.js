@@ -1,7 +1,7 @@
 import AppContainer from './AppContainer';
 import BoardContainer from './BoardContainer';
 import ListContainer from './ListContainer';
-import CardContainer from './CardContainer';
+import CardPreviewContainer from './CardPreviewContainer';
 import NewBoardContainer from './NewBoardContainer';
 import NewListContainer from './NewListContainer';
 import NewCardContainer from './NewCardContainer';
@@ -11,7 +11,7 @@ export {
   AppContainer,
   BoardContainer,
   ListContainer,
-  CardContainer,
+  CardPreviewContainer,
   NewBoardContainer,
   NewListContainer,
   NewCardContainer,

@@ -22,7 +22,7 @@ const Board = ({
   return (
     <div className="Board">
       <h2 className="text-center">
-        Board: {board.name}
+        {board.name}
         {' '}
         <a
           href=""

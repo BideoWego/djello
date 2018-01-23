@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { Card } from '../components';
+import { CardPreview } from '../components';
 import { destroyCard } from '../actions';
 
 const mapDispatchToProps = dispatch => {
@@ -13,4 +13,4 @@ const mapDispatchToProps = dispatch => {
 export default connect(
   null,
   mapDispatchToProps
-)(Card);
+)(CardPreview);

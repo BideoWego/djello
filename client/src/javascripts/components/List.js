@@ -1,11 +1,11 @@
 import React from 'react';
-import { NewCardContainer, CardContainer } from '../containers';
+import { NewCardContainer, CardPreviewContainer } from '../containers';
 
 const List = ({ list, onClickListDelete }) => {
   return (
     <div className="List">
       <h3>
-        List: {list.name}
+        {list.name}
         {' '}
         <a
           href=""
@@ -22,7 +22,7 @@ const List = ({ list, onClickListDelete }) => {
         {list.Cards.length ? (
           list.Cards.map(card => (
             <div className="col-12" key={card.id}>
-              <CardContainer card={card} />
+              <CardPreviewContainer card={card} />
             </div>
           ))
         ) : (
@@ -30,7 +30,7 @@ const List = ({ list, onClickListDelete }) => {
             <p className="text-muted">No cards yet</p>
           </div>
         )}
-        <div className="col-12">
+        <div className="col-12 mt-3">
           <NewCardContainer list={list} />
         </div>
       </div>

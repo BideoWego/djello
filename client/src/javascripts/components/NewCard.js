@@ -10,7 +10,7 @@ const NewCard = ({ list, toggle, isOpen, onSubmit }) => {
   if (!isOpen) {
     return (
       <div className="col" key="create-card">
-        <a href="" className="text-muted" onClick={e => {
+        <a href="" onClick={e => {
           e.preventDefault();
           toggle();
           return false;

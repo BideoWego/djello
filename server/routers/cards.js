@@ -3,6 +3,9 @@ const router = express.Router();
 const { Card, List } = require('../models');
 
 
+// TODO Make card show route?
+
+
 // ----------------------------------------
 // Create
 // ----------------------------------------
