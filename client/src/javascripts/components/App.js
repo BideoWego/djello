@@ -3,7 +3,8 @@ import { Title } from '.';
 import {
   NavigationContainer,
   BoardContainer,
-  NewBoardContainer
+  NewBoardContainer,
+  CardContainer
 } from '../containers';
 import { Switch, Route } from 'react-router-dom';
 
@@ -17,6 +18,7 @@ const App = ({
 }) => (
   <div className="App mb-5">
     <Title title="Djello" />
+    <Route path="/cards/:id" component={CardContainer} />
     <NewBoardContainer
       isOpen={isOpenNewBoard}
       toggle={onToggleNewBoard} />

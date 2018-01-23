@@ -6,6 +6,7 @@ import NewBoardContainer from './NewBoardContainer';
 import NewListContainer from './NewListContainer';
 import NewCardContainer from './NewCardContainer';
 import NavigationContainer from './NavigationContainer';
+import CardContainer from './CardContainer';
 
 export {
   AppContainer,
@@ -15,5 +16,6 @@ export {
   NewBoardContainer,
   NewListContainer,
   NewCardContainer,
-  NavigationContainer
+  NavigationContainer,
+  CardContainer
 };

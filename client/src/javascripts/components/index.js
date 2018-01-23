@@ -7,6 +7,7 @@ import NewBoard from './NewBoard';
 import NewList from './NewList';
 import NewCard from './NewCard';
 import Navigation from './Navigation';
+import CardDetail from './CardDetail';
 
 export {
   App,
@@ -17,5 +18,6 @@ export {
   NewBoard,
   NewList,
   NewCard,
-  Navigation
+  Navigation,
+  CardDetail
 };
