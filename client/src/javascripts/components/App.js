@@ -29,6 +29,7 @@ const App = ({
       boards={boards} />
     <main className="container-fluid mt-4 mb-5">
       <Switch>
+        {/* TODO: Put logic in board container to get board from board or card id or wrap board container with a component to resolve the board from either */}
         <Route path="/boards/:id" component={BoardContainer} />
         <Route
           path="*"
