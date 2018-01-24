@@ -8,6 +8,7 @@ import {
 } from '../containers';
 import { Switch, Route } from 'react-router-dom';
 
+// TODO: users is not used in the App component yet
 const App = ({
   users,
   boards,
@@ -29,8 +30,10 @@ const App = ({
       boards={boards} />
     <main className="container-fluid mt-4 mb-5">
       <Switch>
-        {/* TODO: Put logic in board container to get board from board or card id or wrap board container with a component to resolve the board from either */}
         <Route path="/boards/:id" component={BoardContainer} />
+        <Route path="/cards/:id" render={
+          props => <BoardContainer isCardBackground {...props} />
+        } />
         <Route
           path="*"
           render={() => (

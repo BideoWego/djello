@@ -4,7 +4,9 @@ import { App } from '../components';
 import { getUsers, getBoards, getCurrentUser } from '../actions';
 
 const mapStateToProps = state => {
+  // TODO: users is not used in the App component yet
   return {
+    card: state.cardInfo.card,
     board: state.boardInfo.board,
     boards: state.boardsInfo.boards,
     users: state.usersInfo.users,
@@ -35,7 +37,7 @@ class AppContainer extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    if (this.props.board !== nextProps.board) {
+    if (this.props.board !== nextProps.board && !this.props.card) {
       this.props.history.push(`/boards/${ nextProps.board.id }`);
     }
   }
