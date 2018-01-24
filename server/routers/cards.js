@@ -1,9 +1,24 @@
 const express = require('express');
 const router = express.Router();
-const { Card, List } = require('../models');
+const { Card, List, Board } = require('../models');
 
 
-// TODO Make card show route?
+// ----------------------------------------
+// Show
+// ----------------------------------------
+router.get('/:id', async (req, res, next) => {
+  try {
+    const card = await Card.findById(req.params.id, {
+      include: {
+        model: List,
+        include: Board
+      }
+    });
+    res.json(card);
+  } catch (e) {
+    next(e);
+  }
+});
 
 
 // ----------------------------------------
