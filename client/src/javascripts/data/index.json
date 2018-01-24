@@ -1,4 +1,8 @@
 {
+  "cardInfo": {
+    "card": null,
+    "isFetching": false
+  },
   "boardInfo": {
     "board": null,
     "isFetching": false

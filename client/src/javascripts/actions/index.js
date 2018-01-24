@@ -5,6 +5,7 @@ export * from './boards';
 export * from './current_user';
 export * from './list_create';
 export * from './list_destroy';
+export * from './card';
 export * from './card_create';
 export * from './card_destroy';
 export * from './users';
