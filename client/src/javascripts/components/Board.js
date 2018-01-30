@@ -1,5 +1,9 @@
 import React from 'react';
-import { NewListContainer, ListContainer } from '../containers';
+import {
+  NewListContainer,
+  ListContainer,
+  EditableContainer
+} from '../containers';
 
 const Board = ({
   board,
@@ -22,18 +26,20 @@ const Board = ({
   return (
     <div className="Board">
       <h2 className="text-center">
-        {board.name}
-        {' '}
-        <a
-          href=""
-          className="text-danger"
-          onClick={e => {
-            e.preventDefault();
-            onClickBoardDelete(board.id);
-            return false;
-          }}>
-          &times;
-        </a>
+        <EditableContainer value={board.name}>
+          {board.name}
+          {' '}
+          <a
+            href=""
+            className="text-danger"
+            onClick={e => {
+              e.preventDefault();
+              onClickBoardDelete(board.id);
+              return false;
+            }}>
+            &times;
+          </a>
+        </EditableContainer>
       </h2>
       <div className="lists row mt-4">
         {board.Lists.length ? (

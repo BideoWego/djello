@@ -7,17 +7,20 @@ import {
   ModalFooter,
   Form
 } from 'reactstrap';
+import { EditableContainer } from '../containers';
 
 const CardDetail = ({ card, toggle, isOpen, onSubmit }) => (
   <div className="NewBoard">
     <Modal isOpen={isOpen} toggle={toggle}>
-      <ModalHeader toggle={toggle}>{card.name}</ModalHeader>
+      <ModalHeader toggle={toggle}>
+        <EditableContainer value={card.name} />
+      </ModalHeader>
       <Form onSubmit={e => {
         onSubmit(e);
         toggle();
       }}>
         <ModalBody>
-          {card.description}
+          <EditableContainer value={card.description} type="textarea" />
         </ModalBody>
         <ModalFooter>
           <Button color="primary">
