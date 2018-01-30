@@ -9,6 +9,7 @@ import {
 import { Switch, Route } from 'react-router-dom';
 
 // TODO: users is not used in the App component yet
+// TODO: add PropTypes
 const App = ({
   users,
   boards,
