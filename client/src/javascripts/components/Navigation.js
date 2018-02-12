@@ -21,7 +21,8 @@ const Navigation = ({
   onClickBoard,
   isOpen,
   toggle,
-  onClickBoardCreate
+  onClickBoardCreate,
+  destroySession
 }) => (
   <div className="Navigation">
     <Navbar color="faded" light expand="md">
@@ -75,11 +76,20 @@ const Navigation = ({
               </DropdownMenu>
             </UncontrolledDropdown>
 
-            {/* Logout */}
+            {/* Login/Logout */}
+            <NavItem>
+              <NavLink
+                activeClassName="active"
+                to="/login"
+                tag={RRNavLink}>
+                Login
+              </NavLink>
+            </NavItem>
             <NavItem>
               <NavLink
                 activeClassName="active"
                 to="/logout"
+                onClick={destroySession}
                 tag={RRNavLink}>
                 Logout
               </NavLink>

@@ -87,6 +87,48 @@ app.use(express.static(`${__dirname}/public`));
 
 
 // ----------------------------------------
+// Passport
+// ----------------------------------------
+const passport = require('passport');
+app.use(passport.initialize());
+
+
+// ----------------------------------------
+// JWTs
+// ----------------------------------------
+const {
+  JWT_SECRET,
+  JWT_ISSUER,
+  JWT_AUDIENCE
+} = process.env;
+const {
+  Strategy: JwtStrategy,
+  ExtractJwt
+} = require('passport-jwt');
+const { User } = require('./models');
+
+passport.use(new JwtStrategy({
+  jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
+  secretOrKey: JWT_SECRET,
+  issuer: JWT_ISSUER,
+  audience: JWT_AUDIENCE
+}, async (payload, next) => {
+  try {
+    const id = payload.id;
+    const user = await User.findById(id);
+
+    if (user) {
+      return next(null, user);
+    }
+
+    next(null, false);
+  } catch (e) {
+    next(e, false);
+  }
+}));
+
+
+// ----------------------------------------
 // Logging
 // ----------------------------------------
 const morgan = require('morgan');
@@ -98,6 +140,9 @@ app.use(morganToolkit());
 // ----------------------------------------
 // Routes
 // ----------------------------------------
+const sessionsRouter = require('./routers/sessions');
+app.use('/', sessionsRouter);
+
 const usersRouter = require('./routers/users');
 app.use('/users', usersRouter);
 

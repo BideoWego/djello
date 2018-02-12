@@ -1,5 +1,13 @@
 import React, { Component } from 'react';
 import { Navigation } from '../components';
+import { destroySession } from '../actions';
+import { connect } from 'react-redux';
+
+const mapDispatchToProps = dispatch => {
+  return {
+    destroySession: () => dispatch(destroySession())
+  };
+};
 
 class NavigationContainer extends Component {
   constructor(props) {
@@ -24,10 +32,11 @@ class NavigationContainer extends Component {
           onClickBoardCreate={this.props.onClickBoardCreate}
           boards={this.props.boards}
           isOpen={this.state.isOpen}
+          destroySession={this.props.destroySession}
           toggle={this.toggle} />
       </div>
     );
   }
 }
 
-export default NavigationContainer;
+export default connect(null, mapDispatchToProps)(NavigationContainer);
