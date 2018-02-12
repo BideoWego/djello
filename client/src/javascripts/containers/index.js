@@ -8,6 +8,8 @@ import NewCardContainer from './NewCardContainer';
 import NavigationContainer from './NavigationContainer';
 import CardContainer from './CardContainer';
 import EditableContainer from './EditableContainer';
+import LoginContainer from './LoginContainer';
+import LogoutContainer from './LogoutContainer';
 
 export {
   AppContainer,
@@ -19,5 +21,7 @@ export {
   NewCardContainer,
   NavigationContainer,
   CardContainer,
-  EditableContainer
+  EditableContainer,
+  LoginContainer,
+  LogoutContainer
 };

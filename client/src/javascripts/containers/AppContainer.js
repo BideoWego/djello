@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { App } from '../components';
-import { getUsers, getBoards, getCurrentUser } from '../actions';
+import { getUsers, getBoards } from '../actions';
 
 const mapStateToProps = state => {
   // TODO: users is not used in the App component yet
@@ -9,16 +9,14 @@ const mapStateToProps = state => {
     card: state.cardInfo.card,
     board: state.boardInfo.board,
     boards: state.boardsInfo.boards,
-    users: state.usersInfo.users,
-    currentUser: state.currentUserInfo.currentUser
+    users: state.usersInfo.users
   };
 };
 
 const mapDispatchToProps = dispatch => {
   return {
     getUsers: () => dispatch(getUsers()),
-    getBoards: () => dispatch(getBoards()),
-    getCurrentUser: () => dispatch(getCurrentUser())
+    getBoards: () => dispatch(getBoards())
   };
 };
 
@@ -33,7 +31,6 @@ class AppContainer extends Component {
   componentDidMount() {
     this.props.getUsers();
     this.props.getBoards();
-    this.props.getCurrentUser();
   }
 
   componentWillReceiveProps(nextProps) {
@@ -56,7 +53,6 @@ class AppContainer extends Component {
           onToggleNewBoard={this.onToggleNewBoard}
           users={this.props.users}
           boards={this.props.boards}
-          currentUser={this.props.currentUser}
           board={this.props.board} />
       </div>
     );

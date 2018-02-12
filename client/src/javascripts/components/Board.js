@@ -12,7 +12,7 @@ const Board = ({
   isFetching
 }) => {
   if (isFetching) {
-    return <p className="text-muted">Loading...</p>
+    return <p className="text-muted text-center">Loading...</p>
   }
 
   if (!board) {

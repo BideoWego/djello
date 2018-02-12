@@ -3,6 +3,12 @@ import { Navigation } from '../components';
 import { destroySession } from '../actions';
 import { connect } from 'react-redux';
 
+const mapStateToProps = state => {
+  return {
+    currentUser: state.currentUserInfo.currentUser
+  };
+};
+
 const mapDispatchToProps = dispatch => {
   return {
     destroySession: () => dispatch(destroySession())
@@ -39,4 +45,7 @@ class NavigationContainer extends Component {
   }
 }
 
-export default connect(null, mapDispatchToProps)(NavigationContainer);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(NavigationContainer);

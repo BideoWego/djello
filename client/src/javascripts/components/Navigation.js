@@ -21,8 +21,7 @@ const Navigation = ({
   onClickBoard,
   isOpen,
   toggle,
-  onClickBoardCreate,
-  destroySession
+  onClickBoardCreate
 }) => (
   <div className="Navigation">
     <Navbar color="faded" light expand="md">
@@ -76,24 +75,17 @@ const Navigation = ({
               </DropdownMenu>
             </UncontrolledDropdown>
 
-            {/* Login/Logout */}
-            <NavItem>
-              <NavLink
-                activeClassName="active"
-                to="/login"
-                tag={RRNavLink}>
-                Login
-              </NavLink>
-            </NavItem>
-            <NavItem>
-              <NavLink
-                activeClassName="active"
-                to="/logout"
-                onClick={destroySession}
-                tag={RRNavLink}>
-                Logout
-              </NavLink>
-            </NavItem>
+            {/* Logout */}
+            {currentUser ? (
+              <NavItem>
+                <NavLink
+                  activeClassName="active"
+                  to="/logout"
+                  tag={RRNavLink}>
+                  Logout
+                </NavLink>
+              </NavItem>
+            ) : null}
           </Nav>
         ) : null}
       </Collapse>

@@ -1,4 +1,5 @@
 import { apiUrlFor } from '../helpers';
+import { getCurrentUser } from './current_user';
 
 // ----------------------------------------
 // Session Create
@@ -27,7 +28,7 @@ export function requestFailedSessionCreate(error) {
   };
 }
 
-export function createSession() {
+export function createSession({ email, password }) {
   return async dispatch => {
     try {
       dispatch(requestingSessionCreate());
@@ -37,14 +38,12 @@ export function createSession() {
         headers: {
           "Content-Type": 'application/json'
         },
-        body: JSON.stringify({
-          email: 'george_costanza@gmail.com',
-          password: 'password'
-        })
+        body: JSON.stringify({ email, password })
       });
       const session = await response.json();
       localStorage.setItem('token', session.token);
       dispatch(requestSucceededSessionCreate());
+      dispatch(getCurrentUser());
     } catch (e) {
       dispatch(requestFailedSessionCreate(e));
     }

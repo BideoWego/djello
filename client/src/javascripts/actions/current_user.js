@@ -38,7 +38,12 @@ export function getCurrentUser() {
   return async dispatch => {
     try {
       dispatch(requestingCurrentUser());
-      const response = await fetch(apiUrlFor('/users/me'));
+      const token = localStorage.getItem('token');
+      const response = await fetch(apiUrlFor('/users/me'), {
+        headers: {
+          Authorization: `Bearer ${ token }`
+        }
+      });
       const currentUser = await response.json();
       dispatch(requestSucceededCurrentUser());
       dispatch(setCurrentUser(currentUser));

@@ -8,6 +8,8 @@ import NewList from './NewList';
 import NewCard from './NewCard';
 import Navigation from './Navigation';
 import CardDetail from './CardDetail';
+import Login from './Login';
+import Logout from './Logout';
 
 export {
   App,
@@ -19,5 +21,7 @@ export {
   NewList,
   NewCard,
   Navigation,
-  CardDetail
+  CardDetail,
+  Login,
+  Logout
 };

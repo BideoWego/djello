@@ -34,6 +34,13 @@ class CurrentUserInfoReducer extends BaseReducer {
       currentUser: this.action.data
     };
   }
+
+  [actions.REQUEST_SUCCEEDED_SESSION_DESTROY]() {
+    return {
+      ...this.state,
+      currentUser: null
+    };
+  }
 }
 
 export default function currentUserInfo(state=initialState.currentUserInfo, action) {
