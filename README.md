@@ -1,4 +1,4 @@
-# assignment_djello
+# Djello
 
 Project management with that great wobbly taste.
 
