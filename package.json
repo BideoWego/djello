@@ -1,0 +1,21 @@
+{
+  "name": "project_djello",
+  "version": "1.0.0",
+  "description": "Project management with that great wobbly taste.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server/app.js",
+    "postinstall": "cd server && npm install --save"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BideoWego/project_djello.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BideoWego/project_djello/issues"
+  },
+  "homepage": "https://github.com/BideoWego/project_djello#readme"
+}
