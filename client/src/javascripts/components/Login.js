@@ -1,10 +1,15 @@
 import React from 'react';
-import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
+import { Alert, Button, Form, FormGroup, Label, Input } from 'reactstrap';
 
 const Login = ({ onSubmit }) => (
   <div className="Login">
     <h1 className="text-center">Welcome to Djello</h1>
     <main className="container">
+      <Alert color="primary" className="text-center">
+        <p>To log in as a guest use the example account:</p>
+        <p>Email: <code>george_costanza@gmail.com</code></p>
+        <p>Password: <code>password</code></p>
+      </Alert>
       <h2 className="text-center">Please Login</h2>
       <Form onSubmit={onSubmit}>
         <FormGroup>
