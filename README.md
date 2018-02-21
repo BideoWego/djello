@@ -1,5 +1,9 @@
 # assignment_djello
+
 Project management with that great wobbly taste.
+
+View the deployed app on Surge (API powered by Heroku) [here](https://bideowego-djello.surge.sh/).
+
 
 ## TODOs [Unreleased]
 
