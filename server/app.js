@@ -9,11 +9,16 @@ app.locals.appName = 'My App';
 
 
 // ----------------------------------------
+// Disable ETags
+// ----------------------------------------
+app.disable('etag');
+
+
+// ----------------------------------------
 // ENV
 // ----------------------------------------
 if (process.env.NODE_ENV !== 'production') {
   require('dotenv').config();
-  app.disable('etag');
 }
 
 
