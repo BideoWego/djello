@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { App } from '../components';
-import { getUsers, getBoards } from '../actions';
+import { getBoards } from '../actions';
 
 const mapStateToProps = state => {
   return {
