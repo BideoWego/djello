@@ -8,6 +8,7 @@
     "start": "node server/app.js",
     "postinstall": "cd server && npm install --save",
     "start:local": "osascript start.applescript",
+    "start:dev": "npm run start:local",
     "deploy:client": "cd client && npm run build && surge build",
     "deploy:server": "git push -u heroku master",
     "deploy": "npm run deploy:client && npm run deploy:server"
