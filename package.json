@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server/app.js",
-    "postinstall": "cd server && npm install --save"
+    "postinstall": "cd server && npm install --save",
+    "start:local": "osascript start.applescript"
   },
   "repository": {
     "type": "git",
