@@ -35,7 +35,7 @@ const App = ({
             props => <BoardContainer isCardBackground {...props} />
           } />
 
-          {/* TODO figure out 404 handler here */}
+          {/* TODO figure out 404 handler here or in index.js */}
           <Route
             path="*"
             render={props => (
