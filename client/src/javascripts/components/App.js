@@ -34,9 +34,11 @@ const App = ({
           <Route path="/cards/:id" render={
             props => <BoardContainer isCardBackground {...props} />
           } />
+
+          {/* TODO figure out 404 handler here */}
           <Route
             path="*"
-            render={() => (
+            render={props => (
               <p className="text-muted text-center">
                 Select or {' '}
                 <a href="" onClick={e => {

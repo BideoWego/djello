@@ -1,4 +1,4 @@
-import { apiUrlFor } from '../helpers';
+import { apiUrlFor, history } from '../helpers';
 import { getBoards } from './boards';
 
 // ----------------------------------------
@@ -42,6 +42,7 @@ export function createBoard(data) {
       // TODO check response status code
       const board = await response.json();
       dispatch(requestSucceededBoardCreate(board));
+      history.push(`/boards/${ board.id }`);
       dispatch(getBoards());
     } catch (e) {
       dispatch(requestFailedBoardCreate(e));

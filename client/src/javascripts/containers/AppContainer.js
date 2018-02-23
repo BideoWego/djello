@@ -4,18 +4,14 @@ import { App } from '../components';
 import { getUsers, getBoards } from '../actions';
 
 const mapStateToProps = state => {
-  // TODO: users is not used in the App component yet
   return {
-    card: state.cardInfo.card,
-    board: state.boardInfo.board,
-    boards: state.boardsInfo.boards,
-    users: state.usersInfo.users
+    cardInfo: state.cardInfo,
+    boardsInfo: state.boardsInfo
   };
 };
 
 const mapDispatchToProps = dispatch => {
   return {
-    getUsers: () => dispatch(getUsers()),
     getBoards: () => dispatch(getBoards())
   };
 };
@@ -29,14 +25,7 @@ class AppContainer extends Component {
   }
 
   componentDidMount() {
-    this.props.getUsers();
     this.props.getBoards();
-  }
-
-  componentWillReceiveProps(nextProps) {
-    if (this.props.board !== nextProps.board && !this.props.card) {
-      this.props.history.push(`/boards/${ nextProps.board.id }`);
-    }
   }
 
   onToggleNewBoard = () => {
@@ -51,9 +40,7 @@ class AppContainer extends Component {
         <App
           isOpenNewBoard={this.state.isOpenNewBoard}
           onToggleNewBoard={this.onToggleNewBoard}
-          users={this.props.users}
-          boards={this.props.boards}
-          board={this.props.board} />
+          boards={this.props.boardsInfo.boards} />
       </div>
     );
   }

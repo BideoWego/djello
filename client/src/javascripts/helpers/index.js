@@ -1,3 +1,5 @@
+import createBrowserHistory from 'history/createBrowserHistory';
+
 // ----------------------------------------
 // API End-Point
 // ----------------------------------------
@@ -11,3 +13,11 @@ const API_URL = {
 const apiUrlFor = uri => `${ API_URL }${ uri }`;
 
 export { apiUrlFor };
+
+
+// ----------------------------------------
+// History
+// ----------------------------------------
+const history = createBrowserHistory();
+
+export { history };
