@@ -67,6 +67,32 @@ class BoardInfoReducer extends BaseReducer {
   }
 
   // ----------------------------------------
+  // Board Update
+  // ----------------------------------------
+  [actions.REQUESTING_BOARD_UPDATE]() {
+    return {
+      ...this.state,
+      isFetching: true
+    };
+  }
+
+  [actions.REQUEST_SUCCEEDED_BOARD_UPDATE]() {
+    return {
+      ...this.state,
+      isFetching: false,
+      board: this.action.data
+    };
+  }
+
+  [actions.REQUEST_FAILED_BOARD_UPDATE]() {
+    return {
+      ...this.state,
+      isFetching: false,
+      error: this.action.error
+    };
+  }
+
+  // ----------------------------------------
   // Board Create
   // ----------------------------------------
   [actions.REQUESTING_BOARD_CREATE]() {

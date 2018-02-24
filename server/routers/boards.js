@@ -67,6 +67,28 @@ router.post('/', async (req, res, next) => {
 
 
 // ----------------------------------------
+// Update
+// ----------------------------------------
+router.put('/:id', async (req, res, next) => {
+  try {
+    const boardParams = {
+      name: req.body.board.name
+    };
+    await Board.update(boardParams, { where: { id: req.params.id } });
+    const board = await Board.findById(req.params.id, {
+      include: {
+        model: List,
+        include: Card
+      }
+    });
+    res.json(board);
+  } catch (e) {
+    next(e);
+  }
+});
+
+
+// ----------------------------------------
 // Destroy
 // ----------------------------------------
 router.delete('/:id', async (req, res, next) => {

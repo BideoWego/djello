@@ -7,8 +7,8 @@ import {
 
 const Board = ({
   boardInfo,
-  onClickListCreate,
-  onClickBoardDelete
+  onClickBoardDelete,
+  onSubmitBoardUpdate
 }) => {
   if (boardInfo.isFetching) {
     return <p className="text-muted text-center">Loading...</p>;
@@ -27,7 +27,11 @@ const Board = ({
   return (
     <div className="Board">
       <h2 className="text-center">
-        <EditableContainer value={board.name}>
+        <EditableContainer
+          value={board.name}
+          onSubmit={name => {
+            onSubmitBoardUpdate(board.id, { name });
+          }}>
           {board.name}
           {' '}
           <a

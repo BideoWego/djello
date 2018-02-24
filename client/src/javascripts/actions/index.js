@@ -1,6 +1,7 @@
 export * from './board';
 export * from './board_create';
 export * from './board_destroy';
+export * from './board_update';
 export * from './boards';
 export * from './current_user';
 export * from './list_create';
