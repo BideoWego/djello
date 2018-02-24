@@ -10,6 +10,10 @@ class EditableContainer extends Component {
     };
   }
 
+  componentWillReceiveProps(nextProps) {
+    this.setState({ value: nextProps.value });
+  }
+
   onFocus = e => {
     this.setState({ isEditing: true });
   }
