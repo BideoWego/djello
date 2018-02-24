@@ -6,7 +6,7 @@ import NewBoardContainer from './NewBoardContainer';
 import NewListContainer from './NewListContainer';
 import NewCardContainer from './NewCardContainer';
 import NavigationContainer from './NavigationContainer';
-import CardContainer from './CardContainer';
+import CardDetailContainer from './CardDetailContainer';
 import EditableContainer from './EditableContainer';
 import LoginContainer from './LoginContainer';
 import LogoutContainer from './LogoutContainer';
@@ -20,7 +20,7 @@ export {
   NewListContainer,
   NewCardContainer,
   NavigationContainer,
-  CardContainer,
+  CardDetailContainer,
   EditableContainer,
   LoginContainer,
   LogoutContainer

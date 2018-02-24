@@ -9,7 +9,7 @@ import {
 } from 'reactstrap';
 import { EditableContainer } from '../containers';
 
-const CardDetail = ({ cardInfo, toggle, isOpen, onSubmit }) => {
+const CardDetail = ({ cardInfo, toggle, isOpen, onSubmitCardUpdate }) => {
   return (
     <div className="CardDetail">
       <Modal isOpen={isOpen} toggle={toggle}>
@@ -20,20 +20,29 @@ const CardDetail = ({ cardInfo, toggle, isOpen, onSubmit }) => {
           ) : (
             <div>
               <ModalHeader toggle={toggle}>
-                <EditableContainer value={cardInfo.card.name} />
+                <EditableContainer
+                  value={cardInfo.card.name}
+                  onSubmit={name => {
+                    onSubmitCardUpdate(cardInfo.card.id, { card: { name } });
+                  }} />
               </ModalHeader>
               <Form onSubmit={e => {
-                onSubmit(e);
+                e.preventDefault();
                 toggle();
               }}>
                 <ModalBody>
-                  <EditableContainer value={cardInfo.card.description} type="textarea" />
+                  <EditableContainer
+                    value={cardInfo.card.description}
+                    type="textarea"
+                    onSubmit={description => {
+                      onSubmitCardUpdate(
+                        cardInfo.card.id,
+                        { card: { description } }
+                      );
+                    }} />
                 </ModalBody>
                 <ModalFooter>
-                  <Button color="primary">
-                    Submit
-                  </Button>{' '}
-                  <Button color="secondary" onClick={toggle}>Cancel</Button>
+                  <Button color="secondary" onClick={toggle}>Close</Button>
                 </ModalFooter>
               </Form>
             </div>

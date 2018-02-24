@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { CardDetail } from '../components';
 import { connect } from 'react-redux';
-import { getCard } from '../actions';
+import { getCard, updateCard } from '../actions';
 
 const mapStateToProps = state => {
   return {
@@ -11,11 +11,12 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
-    getCard: id => dispatch(getCard(id))
+    getCard: id => dispatch(getCard(id)),
+    updateCard: (id, data) => dispatch(updateCard(id, data))
   };
 };
 
-class CardContainer extends Component {
+class CardDetailContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -48,7 +49,7 @@ class CardContainer extends Component {
           cardInfo={this.props.cardInfo}
           toggle={this.toggle}
           isOpen={this.state.isOpen}
-          onSubmit={() => console.log('Submitting...')} />
+          onSubmitCardUpdate={this.props.updateCard} />
       </div>
     );
   }
@@ -57,4 +58,4 @@ class CardContainer extends Component {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(CardContainer);
+)(CardDetailContainer);

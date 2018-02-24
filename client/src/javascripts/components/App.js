@@ -4,7 +4,7 @@ import {
   NavigationContainer,
   BoardContainer,
   NewBoardContainer,
-  CardContainer,
+  CardDetailContainer,
   LoginContainer,
   LogoutContainer
 } from '../containers';
@@ -19,7 +19,7 @@ const App = ({
     <Title title="Djello" />
     <LoginContainer>
       <Route exact path="/logout" component={LogoutContainer} />
-      <Route path="/cards/:id" component={CardContainer} />
+      <Route path="/cards/:id" component={CardDetailContainer} />
       <NewBoardContainer
         isOpen={isOpenNewBoard}
         toggle={onToggleNewBoard} />

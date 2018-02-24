@@ -40,6 +40,24 @@ router.post('/', async (req, res, next) => {
 
 
 // ----------------------------------------
+// Update
+// ----------------------------------------
+router.put('/:id', async (req, res, next) => {
+  try {
+    const cardParams = {
+      name: req.body.card.name,
+      description: req.body.card.description
+    };
+    await Card.update(cardParams, { where: { id: req.params.id } });
+    const card = await Card.findById(req.params.id, { include: List });
+    res.json(card);
+  } catch (e) {
+    next(e);
+  }
+});
+
+
+// ----------------------------------------
 // Destroy
 // ----------------------------------------
 router.delete('/:id', async (req, res, next) => {

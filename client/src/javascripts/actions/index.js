@@ -10,5 +10,6 @@ export * from './list_update';
 export * from './card';
 export * from './card_create';
 export * from './card_destroy';
+export * from './card_update';
 export * from './users';
 export * from './session';
