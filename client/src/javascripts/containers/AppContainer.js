@@ -1,20 +1,5 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
 import { App } from '../components';
-import { getBoards } from '../actions';
-
-const mapStateToProps = state => {
-  return {
-    cardInfo: state.cardInfo,
-    boardsInfo: state.boardsInfo
-  };
-};
-
-const mapDispatchToProps = dispatch => {
-  return {
-    getBoards: () => dispatch(getBoards())
-  };
-};
 
 class AppContainer extends Component {
   constructor(props) {
@@ -22,10 +7,6 @@ class AppContainer extends Component {
     this.state = {
       isOpenNewBoard: false
     };
-  }
-
-  componentDidMount() {
-    this.props.getBoards();
   }
 
   onToggleNewBoard = () => {
@@ -40,13 +21,10 @@ class AppContainer extends Component {
         <App
           isOpenNewBoard={this.state.isOpenNewBoard}
           onToggleNewBoard={this.onToggleNewBoard}
-          boards={this.props.boardsInfo.boards} />
+          boardsInfo={this.props.boardsInfo} />
       </div>
     );
   }
 }
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(AppContainer);
+export default AppContainer;

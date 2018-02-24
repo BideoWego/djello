@@ -12,7 +12,6 @@ import { Switch, Route } from 'react-router-dom';
 
 // TODO: add PropTypes
 const App = ({
-  boards,
   isOpenNewBoard,
   onToggleNewBoard
 }) => (
@@ -26,8 +25,7 @@ const App = ({
         toggle={onToggleNewBoard} />
       <NavigationContainer
         brand="Djello"
-        onClickBoardCreate={onToggleNewBoard}
-        boards={boards} />
+        onClickBoardCreate={onToggleNewBoard} />
       <main className="container-fluid mt-4 mb-5">
         <Switch>
           <Route path="/boards/:id" component={BoardContainer} />

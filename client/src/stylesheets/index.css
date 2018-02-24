@@ -1,3 +1,5 @@
+/* Nav */
+
 .Navigation {
   background: #ddd;
 }
@@ -7,6 +9,13 @@
   margin-right: 4px;
 }
 
+#boards-dropdown {
+  max-height: 384px;
+  overflow-y: auto;
+}
+
+
+/* Lists */
 
 .List {
   border-radius: 4px;
@@ -14,6 +23,8 @@
   padding: 16px;
 }
 
+
+/* Cards */
 
 .Card h4 {
   margin-bottom: 0;

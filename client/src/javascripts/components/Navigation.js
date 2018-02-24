@@ -17,7 +17,7 @@ import {
 const Navigation = ({
   brand,
   currentUser,
-  boards,
+  boardsInfo,
   onClickBoard,
   isOpen,
   toggle,
@@ -45,7 +45,7 @@ const Navigation = ({
               <DropdownToggle nav caret>
                 Boards
               </DropdownToggle>
-              <DropdownMenu>
+              <DropdownMenu id="boards-dropdown">
                 <DropdownItem>
                   <a href="" onClick={e => {
                     e.preventDefault();
@@ -56,8 +56,12 @@ const Navigation = ({
                   </a>
                 </DropdownItem>
                 <DropdownItem divider />
-                {boards.length ? (
-                  boards.map(board => (
+                {boardsInfo.isFetching ? (
+                    <DropdownItem className="text-muted">
+                      Loading...
+                    </DropdownItem>
+                  ) : boardsInfo.boards.length ? (
+                  boardsInfo.boards.map(board => (
                     <DropdownItem className="text-muted" key={board.id}>
                       <NavLink
                         activeClassName="active"
