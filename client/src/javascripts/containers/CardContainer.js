@@ -45,7 +45,7 @@ class CardContainer extends Component {
     return (
       <div className="CardContainer">
         <CardDetail
-          card={this.props.cardInfo.card}
+          cardInfo={this.props.cardInfo}
           toggle={this.toggle}
           isOpen={this.state.isOpen}
           onSubmit={() => console.log('Submitting...')} />
