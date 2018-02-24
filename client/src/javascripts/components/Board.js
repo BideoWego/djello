@@ -11,7 +11,7 @@ const Board = ({
   onClickBoardDelete
 }) => {
   if (boardInfo.isFetching) {
-    return <p className="text-muted text-center">Loading...</p>
+    return <p className="text-muted text-center">Loading...</p>;
   }
 
   const { board } = boardInfo;
