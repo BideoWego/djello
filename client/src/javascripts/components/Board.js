@@ -29,9 +29,7 @@ const Board = ({
       <h2 className="text-center">
         <EditableContainer
           value={board.name}
-          onSubmit={name => {
-            onSubmitBoardUpdate(board.id, { name });
-          }}>
+          onSubmit={name => onSubmitBoardUpdate(board.id, { board: { name } })}>
           {board.name}
           {' '}
           <a
