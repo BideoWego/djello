@@ -1,4 +1,4 @@
-import { apiUrlFor } from '../helpers';
+import { apiUrlFor, history } from '../helpers';
 import { getCurrentUser } from './current_user';
 
 // ----------------------------------------
@@ -43,6 +43,7 @@ export function createSession({ email, password }) {
       const session = await response.json();
       localStorage.setItem('token', session.token);
       dispatch(requestSucceededSessionCreate());
+      history.push('/');
       dispatch(getCurrentUser());
     } catch (e) {
       dispatch(requestFailedSessionCreate(e));
