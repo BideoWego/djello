@@ -18,7 +18,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
       dispatch(destroyBoard(id));
       ownProps.history.push('/');
     },
-    updateBoard: (id, data) => dispatch(updateBoard(id, data))
+    updateBoard: (id, data) => dispatch(updateBoard(id, { board: data }))
   };
 };
 

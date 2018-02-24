@@ -33,9 +33,7 @@ export function updateBoard(id, data) {
       dispatch(requestingBoardUpdate());
       const response = await fetch(apiUrlFor(`/boards/${ id }`), {
         method: 'PUT',
-        body: JSON.stringify({
-          board: data
-        }),
+        body: JSON.stringify(data),
         headers: {
           "Content-Type": "application/json"
         }
