@@ -28,6 +28,8 @@ class EditableContainer extends Component {
         value: e.target.value,
         isEditing: false
       });
+
+      this.props.onSubmit(e.target.value);
     }
   }
 
@@ -37,6 +39,9 @@ class EditableContainer extends Component {
         {this.state.isEditing ? (
           <Input
             autoFocus
+            onFocus={
+              e => e.target.setSelectionRange(0, e.target.value.length)
+            }
             type={this.props.type ? this.props.type : 'text'}
             value={this.state.value}
             onChange={this.onChangeText}
