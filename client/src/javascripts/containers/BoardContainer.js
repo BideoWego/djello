@@ -43,9 +43,8 @@ class BoardContainer extends Component {
     return (
       <div className="BoardContainer">
         <Board
-          board={this.props.boardInfo.board}
-          onClickBoardDelete={this.props.destroyBoard}
-          isFetching={this.props.boardInfo.isFetching} />
+          boardInfo={this.props.boardInfo}
+          onClickBoardDelete={this.props.destroyBoard} />
       </div>
     );
   }

@@ -6,14 +6,15 @@ import {
 } from '../containers';
 
 const Board = ({
-  board,
+  boardInfo,
   onClickListCreate,
-  onClickBoardDelete,
-  isFetching
+  onClickBoardDelete
 }) => {
-  if (isFetching) {
+  if (boardInfo.isFetching) {
     return <p className="text-muted text-center">Loading...</p>
   }
+
+  const { board } = boardInfo;
 
   if (!board) {
     return (
