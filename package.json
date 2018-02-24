@@ -11,7 +11,8 @@
     "start:dev": "npm run start:local",
     "deploy:client": "cd client && npm run build && surge build",
     "deploy:server": "git push -u heroku master",
-    "deploy": "npm run deploy:client && npm run deploy:server"
+    "deploy": "npm run deploy:client && npm run deploy:server",
+    "open:production": "open https://bideowego-djello.surge.sh"
   },
   "repository": {
     "type": "git",
