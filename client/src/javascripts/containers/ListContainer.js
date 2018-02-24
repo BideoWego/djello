@@ -1,12 +1,13 @@
 import { connect } from 'react-redux';
 import { List } from '../components';
-import { destroyList } from '../actions';
+import { destroyList, updateList } from '../actions';
 
 const mapDispatchToProps = dispatch => {
   return {
     onClickListDelete: id => {
       dispatch(destroyList(id));
-    }
+    },
+    onSubmitListUpdate: (id, data) => dispatch(updateList(id, data))
   };
 };
 

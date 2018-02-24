@@ -5,10 +5,12 @@ import {
   EditableContainer
 } from '../containers';
 
-const List = ({ list, onClickListDelete }) => {
+const List = ({ list, onClickListDelete, onSubmitListUpdate }) => {
   return (
     <div className="List">
-      <EditableContainer value={list.name}>
+      <EditableContainer
+        value={list.name}
+        onSubmit={name => onSubmitListUpdate(list.id, { list: { name } })}>
         <h3>
           {list.name}
           {' '}

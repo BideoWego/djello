@@ -26,6 +26,23 @@ router.post('/', async (req, res, next) => {
 
 
 // ----------------------------------------
+// Update
+// ----------------------------------------
+router.put('/:id', async (req, res, next) => {
+  try {
+    const listParams = {
+      name: req.body.list.name
+    };
+    await List.update(listParams, { where: { id: req.params.id } });
+    const list = await List.findById(req.params.id);
+    res.json(list);
+  } catch (e) {
+    next(e);
+  }
+});
+
+
+// ----------------------------------------
 // Destroy
 // ----------------------------------------
 router.delete('/:id', async (req, res, next) => {

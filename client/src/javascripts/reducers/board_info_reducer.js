@@ -144,6 +144,56 @@ class BoardInfoReducer extends BaseReducer {
   }
 
   // ----------------------------------------
+  // List Update
+  // ----------------------------------------
+  [actions.REQUESTING_LIST_UPDATE]() {
+    return {
+      ...this.state,
+      isFetching: true
+    };
+  }
+
+  [actions.REQUEST_SUCCEEDED_LIST_UPDATE]() {
+    return {
+      ...this.state,
+      isFetching: false
+    };
+  }
+
+  [actions.REQUEST_FAILED_LIST_UPDATE]() {
+    return {
+      ...this.state,
+      isFetching: false,
+      error: this.action.error
+    };
+  }
+
+  // ----------------------------------------
+  // List Destroy
+  // ----------------------------------------
+  [actions.REQUESTING_LIST_DESTROY]() {
+    return {
+      ...this.state,
+      isFetching: true
+    };
+  }
+
+  [actions.REQUEST_SUCCEEDED_LIST_DESTROY]() {
+    return {
+      ...this.state,
+      isFetching: false
+    };
+  }
+
+  [actions.REQUEST_FAILED_LIST_DESTROY]() {
+    return {
+      ...this.state,
+      isFetching: false,
+      error: this.action.error
+    };
+  }
+
+  // ----------------------------------------
   // Card Create
   // ----------------------------------------
   [actions.REQUESTING_CARD_CREATE]() {
